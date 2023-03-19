@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :step do
-    name { "MyString" }
+    name { Faker::Commerce.product_name }
     completed { false }
   end
 end
