@@ -10,15 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_183725) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_210610) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sections", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "steps", force: :cascade do |t|
     t.string "name", null: false
     t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "section_id", null: false
+    t.index ["section_id"], name: "index_steps_on_section_id"
   end
 
+  add_foreign_key "steps", "sections"
 end
