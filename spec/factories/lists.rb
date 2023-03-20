@@ -7,6 +7,6 @@ FactoryBot.define do
   end
 
   trait :with_sections do
-    steps { [association(:section), association(:section)] }
+    sections { [association(:section), association(:section)] }
   end
 end

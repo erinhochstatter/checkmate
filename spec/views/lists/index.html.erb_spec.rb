@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "lists/index", type: :view do
   before(:each) do
-    assign(:lists, [
-      List.create!(),
-      List.create!()
-    ])
+    assign(:lists, create_list(:list, 2))
   end
 
   it "renders a list of lists" do

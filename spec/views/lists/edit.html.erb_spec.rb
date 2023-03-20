@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "lists/edit", type: :view do
   let(:list) {
-    List.create!()
+    create(:list)
   }
 
   before(:each) do
